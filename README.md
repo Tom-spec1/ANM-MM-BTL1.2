@@ -155,4 +155,4 @@ certutil -addstore -user Root .\certs\rootCA.crt.pem
 
 Repository này **không lưu private key hoặc secret thực tế**. Passphrase trong ví dụ chỉ dùng để tạo khóa demo cục bộ sau khi clone; không bảo vệ bất kỳ khóa nào được commit lên GitHub.
 
-Chi tiết thiết kế, hiện thực và kết quả đánh giá nằm trong `BaoCao_BTL1_2_PKI.pdf`.
+Báo cáo kỹ thuật được nộp kèm trong gói Assignment1 của nhóm.
