@@ -104,10 +104,12 @@ certutil -addstore -user Root .\certs\rootCA.crt.pem
 
 ```text
 ANM-MM-BTL1.2/
-├── README.doc
 ├── README.md
 ├── srcs/
 ├── refs/
+│   ├── DANH_MUC_TAI_LIEU_THAM_KHAO.md
+│   ├── libraries/
+│   └── rfcs/
 ├── templates/
 ├── database/
 ├── requirements.txt
