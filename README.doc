@@ -1,0 +1,49 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Times New Roman;}{\f1 Consolas;}}\fs26 H\u431?\u7898?NG D\u7850?N S\u7916? D\u7908?NG\par
+B\u192?I T\u7852?P 1.2 - H\u7840? T\u7846?NG KH\u211?A C\u212?NG KHAI N\u7896?I B\u7896?\par
+\par
+MSSV: 2252211 - 2213078 - 2433220 - 2410482\par
+\par
+1. Y\u234?u c\u7847?u m\u244?i tr\u432?\u7901?ng\par
+- Python 3.11 tr\u7903? l\u234?n.\par
+- OpenSSL c\u243? trong PATH.\par
+- Windows 10/11 ho\u7863?c m\u244?i tr\u432?\u7901?ng t\u432?\u417?ng \u273?\u432?\u417?ng c\u243? th\u7875? ch\u7841?y Python, OpenSSL v\u224? Flask.\par
+\par
+2. C\u224?i \u273?\u7863?t\par
+python -m venv venv\par
+.\\venv\\Scripts\\Activate.ps1\par
+pip install -r requirements.txt\par
+\par
+3. Kh\u7903?i t\u7841?o b\u7897? d\u7919? li\u7879?u PKI\par
+$env:PKI_ROOT_CA_PASSPHRASE="BTL1-PKI-DEMO-LOCAL"\par
+python .\\srcs\\rebuild_demo_state.py\par
+\par
+Root CA Subject:\par
+CN = CA-Root-2252211-2213078-2433220-2410482\par
+OU = Faculty of Computer Science and Engineer - 2252211-2213078-2433220-2410482\par
+\par
+4. Ki\u7875?m tra h\u7879? th\u7889?ng\par
+$env:PKI_ROOT_CA_PASSPHRASE="BTL1-PKI-DEMO-LOCAL"\par
+python .\\srcs\\verify_submission.py\par
+K\u7871?t qu\u7843? th\u224?nh c\u244?ng: ALL VERIFICATIONS PASSED.\par
+\par
+5. Ch\u7841?y Web Server\par
+$env:PKI_ROOT_CA_PASSPHRASE="BTL1-PKI-DEMO-LOCAL"\par
+python .\\srcs\\app.py\par
+Truy c\u7853?p: https://127.0.0.1:5000\par
+\par
+C\u224?i Root CA v\u224?o kho tin c\u7853?y c\u7911?a Windows:\par
+certutil -addstore -user Root .\\certs\\rootCA.crt.pem\par
+\par
+6. Ch\u7913?c n\u259?ng ch\u237?nh\par
+- Qu\u7843?n l\u253? CSR PENDING / APPROVED / REJECTED.\par
+- Ph\u225?t h\u224?nh ch\u7913?ng th\u432? X.509.\par
+- Thu h\u7891?i ch\u7913?ng th\u432? v\u224? sinh CRL.\par
+- OCSP GOOD / REVOKED / UNKNOWN.\par
+- HTTPS/TLS v\u7899?i server certificate do Root CA c\u7845?p.\par
+\par
+7. C\u7845?u tr\u250?c ch\u237?nh\par
+- srcs/: m\u227? ngu\u7891?n Python v\u224? script ki\u7875?m tra.\par
+- templates/: giao di\u7879?n Jinja2/HTML.\par
+- database/: schema SQLite.\par
+- refs/: t\u224?i li\u7879?u tham kh\u7843?o.\par
+}
