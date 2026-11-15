@@ -1,0 +1,23 @@
+# Python / virtual environments
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local secrets and generated PKI state
+.env
+private/
+certs/
+requests/
+database/*.db
+*.key
+*.pem
+*.der
+*.srl
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
